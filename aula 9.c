@@ -15,53 +15,64 @@ typedef struct dados
 
 int main()
 {
-    dados Pessoa;
-    printf("Digite o Nome da Pessoa: ");
-
-    gets(Pessoa.nome);
+    int i, qtdPessoas;
+    printf("Calcular o IMC de quantas pessoas: ");
+    scanf("%d", &qtdPessoas);
     fflush(stdin);
 
-    printf("Digite a idade da pessoa: ");
-    scanf("%i", &Pessoa.idade);
+    dados Pessoa[qtdPessoas]; 
 
-    printf("Digite sua altura: ");
-    scanf("%f", &Pessoa.altura);
+    for (i = 0; i < qtdPessoas; i++)
+    {
 
-    printf("Digite seu peso: ");
-    scanf("%i", &Pessoa.peso);
+        printf("Digite o Nome da Pessoa: ");
+        scanf("%s", &Pessoa[i].nome);
+        fflush(stdin);
 
-    Pessoa.imc = Pessoa.peso / (Pessoa.altura * Pessoa.altura);
+        printf("Digite a idade da pessoa: ");
+        scanf("%i", &Pessoa[i].idade);
 
-    printf("Seu nome é: %s", Pessoa.nome);
-    printf("\nSua idade é: %i", Pessoa.idade);
-    printf("\nSua altura é: %.2f", Pessoa.altura);
-    printf("\nSeu peso é: %i", Pessoa.peso);
-    printf("\nSeu IMC é: %f", Pessoa.imc);
+        printf("Digite sua altura: ");
+        scanf("%f", &Pessoa[i].altura);
 
-    if (Pessoa.imc >= 40)
-    {
-        printf("\nA pessoa se encontra na Classificação: Obesidade Mórbida");
-    }
-    else if (Pessoa.imc >= 35)
-    {
-        printf("\nA pessoa se encontra na Classificação: Obesidade Moderada");
-    }
-    else if (Pessoa.imc >= 30)
-    {
-        printf("\nA pessoa se encontra na Classificação: Obesidade Leve");
-    }
-    else if (Pessoa.imc >= 25)
-    {
-        printf("\nA pessoa se encontra na Classificação: Acima do Peso");
-    }
-    else if (Pessoa.imc >= 18.6)
-    {
-        printf("\nA pessoa se encontra na Classificação: Peso Ideal");
-    }
-    else
-    {
-        printf("\nA pessoa se encontra na Classificação: Abaixo do Peso");
+        printf("Digite seu peso: ");
+        scanf("%i", &Pessoa[i].peso);
+
+        Pessoa[i].imc = Pessoa[i].peso / (Pessoa[i].altura * Pessoa[i].altura);
     }
 
+    for (i = 0; i < qtdPessoas; i++)
+    {
+        printf("Seu nome é: %s", Pessoa[i].nome);
+        printf("\nSua idade é: %i", Pessoa[i].idade);
+        printf("\nSua altura é: %.2f", Pessoa[i].altura);
+        printf("\nSeu peso é: %i", Pessoa[i].peso);
+        printf("\nSeu IMC é: %f", Pessoa[i].imc);
+
+        if (Pessoa[i].imc >= 40)
+        {
+            printf("A pessoa se encontra na Classificação: Obesidade Mórbida\n");
+        }
+        else if (Pessoa[i].imc >= 35)
+        {
+            printf("A pessoa se encontra na Classificação: Obesidade Moderada\n");
+        }
+        else if (Pessoa[i].imc >= 30)
+        {
+            printf("A pessoa se encontra na Classificação: Obesidade Leve\n");
+        }
+        else if (Pessoa[i].imc >= 25)
+        {
+            printf("A pessoa se encontra na Classificação: Acima do Peso\n");
+        }
+        else if (Pessoa[i].imc >= 18.6)
+        {
+            printf("A pessoa se encontra na Classificação: Peso Ideal\n");
+        }
+        else
+        {
+            printf("A pessoa se encontra na Classificação: Abaixo do Peso\n");
+        }
+    }
     return 0;
 }
