@@ -10,6 +10,7 @@ typedef struct dados
     char nome[30];
     int idade, peso;
     float altura, imc;
+
 } dados;
 
 int main()
@@ -29,14 +30,38 @@ int main()
     printf("Digite seu peso: ");
     scanf("%i", &Pessoa.peso);
 
-    // processamento Cálculo de IMC
-    // peso / altura²
-
-    // saída
-
     Pessoa.imc = Pessoa.peso / (Pessoa.altura * Pessoa.altura);
 
-    printf("Seu IMC é: ", Pessoa.imc);
+    printf("Seu nome é: %s", Pessoa.nome);
+    printf("\nSua idade é: %i", Pessoa.idade);
+    printf("\nSua altura é: %.2f", Pessoa.altura);
+    printf("\nSeu peso é: %i", Pessoa.peso);
+    printf("\nSeu IMC é: %f", Pessoa.imc);
+
+    if (Pessoa.imc >= 40)
+    {
+        printf("\nA pessoa se encontra na Classificação: Obesidade Mórbida");
+    }
+    else if (Pessoa.imc >= 35)
+    {
+        printf("\nA pessoa se encontra na Classificação: Obesidade Moderada");
+    }
+    else if (Pessoa.imc >= 30)
+    {
+        printf("\nA pessoa se encontra na Classificação: Obesidade Leve");
+    }
+    else if (Pessoa.imc >= 25)
+    {
+        printf("\nA pessoa se encontra na Classificação: Acima do Peso");
+    }
+    else if (Pessoa.imc >= 18.6)
+    {
+        printf("\nA pessoa se encontra na Classificação: Peso Ideal");
+    }
+    else
+    {
+        printf("\nA pessoa se encontra na Classificação: Abaixo do Peso");
+    }
 
     return 0;
 }
